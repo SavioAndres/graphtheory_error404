@@ -1,9 +1,8 @@
-install: gradle wrapper --gradle-version 4.2
-
-chmod +x gradlew
-
-
 language: java
+
+install:
+  - chmod +x gradlew
+
 
 gradle assemble
 
@@ -11,3 +10,5 @@ jdk:
   - oraclejdk8
   - oraclejdk9
 
+notifications:
+  email: false
