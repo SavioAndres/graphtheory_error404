@@ -1,5 +1,8 @@
 install: gradle wrapper --gradle-version 4.2
 
+chmod +x gradlew
+
+
 language: java
 
 gradle assemble
