@@ -1,6 +1,6 @@
-language: java
-
 install: gradle wrapper --gradle-version 4.2
+
+language: java
 
 gradle assemble
 
