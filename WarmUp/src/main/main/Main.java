@@ -2,24 +2,39 @@ package main;
 
 import java.util.HashSet;
 import java.util.Set;
-
+import org.junit.*;
+import org.junit.Test;
+import static org.junit.Assert.*;
 import graph.*;
 
 public class Main {
 
+    Set<Vertice> vertices;
+    Set<Aresta> arestas;
 
-    public static void main(String[] args) {
+    Grafo grafo;
 
-        Set<Vertice> vertices = new HashSet<Vertice>();
-        Set<Aresta> arestas = new HashSet<Aresta>();
+    Vertice v1;
+    Vertice v2;
+    Vertice v3;
 
-        Vertice v1 = new Vertice("v1");
-        Vertice v2 = new Vertice("v2");
-        Vertice v3 = new Vertice("v3");
+    Aresta aresta1;
+    Aresta aresta2;
+    Aresta aresta3;
 
-        Aresta aresta1 = new Aresta(v1, v2, 0);
-        Aresta aresta2 = new Aresta(v1, v3, 0);
-        Aresta aresta3 = new Aresta(v3, v2, 0);
+
+    @Before
+    public void setUp(){
+        vertices = new HashSet<Vertice>();
+        arestas = new HashSet<Aresta>();
+
+        v1 = new Vertice("v1");
+        v2 = new Vertice("v2");
+        v3 = new Vertice("v3");
+
+        aresta1 = new Aresta(v1, v2, 0);
+        aresta2 = new Aresta(v1, v3, 0);
+        aresta3 = new Aresta(v3, v2, 0);
 
         vertices.add(v1);
         vertices.add(v2);
@@ -29,10 +44,21 @@ public class Main {
         arestas.add(aresta2);
         arestas.add(aresta3);
 
-        Grafo grafo = new Grafo(vertices, arestas);
-
-        System.out.println(grafo.toString());
-
+        grafo = new Grafo(vertices, arestas);
     }
 
+    @Test
+    public void testEhCompleto(){
+        assertFalse(grafo.ehCompleto());
+    }
+
+    @Test
+    public void testEhConexo(){
+        assertFalse(grafo.ehConexo());
+    }
+
+    @Test
+    public void testEhRegular(){
+        assertFalse(grafo.ehRegular());
+    }
 }
