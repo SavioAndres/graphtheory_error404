@@ -7,14 +7,7 @@ script:
   - gradle test
 
 jdk:
-  - oraclejdk7
   - oraclejdk8
-  - oraclejdk9
-  
-matrix:
-  allow_failures:
-    - jdk: oraclejdk9
-
 
 notifications:
   email: false
