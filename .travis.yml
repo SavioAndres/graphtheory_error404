@@ -9,3 +9,13 @@ jdk:
 
 notifications:
   email: false
+
+  
+script: 
+  - gradle test
+
+jdk:
+  - oraclejdk8
+
+notifications:
+  email: false
