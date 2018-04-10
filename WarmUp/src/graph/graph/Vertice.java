@@ -3,6 +3,7 @@ package graph;
 public class Vertice implements Comparable<Vertice> {
 
     private String nome;
+    private boolean visitado;
 
     public Vertice(String nome) {
         this.nome = nome;
@@ -10,6 +11,14 @@ public class Vertice implements Comparable<Vertice> {
 
     public String getNome() {
         return this.nome;
+    }
+
+    public boolean isVisitado() {
+        return visitado;
+    }
+
+    public void setVisitado(boolean visitado) {
+        this.visitado = visitado;
     }
 
     public String toString() {
