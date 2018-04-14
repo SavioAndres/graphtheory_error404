@@ -2,7 +2,6 @@ package graph;
 
 import java.util.HashSet;
 import java.util.Set;
-
 import graph.interfaces.IGrafo;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -38,7 +37,7 @@ public class Grafo implements IGrafo {
 
     @Override
     public Set<Vertice> getAdjacentes(Vertice v) {
-        Set<Vertice> adjacentes = new HashSet<Vertice>();
+        Set<Vertice> adjacentes = new HashSet<>();
 
         for (Aresta arestaAux : arestas) {
             if (arestaAux.getA().equals(v)) {
@@ -100,6 +99,7 @@ public class Grafo implements IGrafo {
         return null;
     }
 
+    @Override
     public Set<Vertice> buscaProfundidade(Vertice vet) {
         Stack<Vertice> pilha = new Stack<>();
         vet.setVisitado(true);
@@ -120,6 +120,7 @@ public class Grafo implements IGrafo {
         return visitados;
     }
 
+    @Override
     public boolean buscaLargura(Vertice v) {
         Queue<Vertice> fila = new LinkedList<>();
         v.setVisitado(true);
@@ -140,6 +141,40 @@ public class Grafo implements IGrafo {
         return false;
     }
 
+    @Override
+    public void buscaProfundidade2(Vertice v) {
+        Stack<Vertice> pilha = new Stack<>();
+        v.setVisitado(true);
+        pilha.push(v);
+        
+        while (!pilha.empty()) {
+            Vertice w = getAdjacentes(pilha.firstElement()).iterator().next();
+            while (!w.isVisitado()) {
+                w.setVisitado(true);
+                pilha.push(w);
+            }
+            pilha.remove(pilha.firstElement());
+        }
+    }
+    
+    @Override
+    public void buscaLargura2(Vertice v) {
+        Queue<Vertice> fila = new LinkedList<>();
+        v.setVisitado(true);
+        fila.add(v);
+        
+        while (!fila.isEmpty()) {            
+            Vertice u = fila.poll();
+            for (int i = 0; i < getAdjacentes(u).size(); i++) {
+                Vertice w = getAdjacentes(u).iterator().next();
+                if(!w.isVisitado()){
+                    w.setVisitado(true);
+                    fila.add(w);
+                }
+            }
+        }
+    }
+    
     @Override
     public String toString() {
 

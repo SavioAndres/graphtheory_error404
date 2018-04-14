@@ -29,6 +29,14 @@ public interface IGrafo {
           Por exemplo, nesse caso V2 é adjacente a v1 e v3.
 
     */
+    public Set<Vertice> buscaProfundidade(Vertice vet);
+    
+    public boolean buscaLargura(Vertice v);
+    
+    public void buscaProfundidade2(Vertice v);
+    
+    public void buscaLargura2(Vertice v);
+    
     public String toString();
 
 }
