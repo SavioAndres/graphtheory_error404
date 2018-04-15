@@ -175,6 +175,27 @@ public class Grafo implements IGrafo {
         }
     }
     
+    private Vertice getArestaPeso(Vertice v) {
+        double peso = 233000;
+        Vertice menorPeso = null;
+        for (Vertice vertice : vertices) {
+            for (Aresta aresta : arestas) {
+                if (!vertice.isVisitado() && vertice == aresta.getA() || vertice == aresta.getB()) {
+                    if (aresta.getPeso() < peso) {
+                        peso = aresta.getPeso();
+                        vertice.setVisitado(true);
+                        if (aresta.getA() != v) {
+                            menorPeso = aresta.getA();
+                        } else {
+                            menorPeso = aresta.getB();
+                        }
+                    }
+                }
+            }
+        }
+        return menorPeso;
+    }
+    
     @Override
     public String toString() {
 
