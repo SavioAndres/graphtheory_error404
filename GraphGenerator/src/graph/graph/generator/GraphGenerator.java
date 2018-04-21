@@ -17,26 +17,21 @@ public class GraphGenerator {
 
     private Set<Vertice> vertices;
 
-    private Set<Aresta> arestas;
-
     private Random geradorNumeros;
+
+    private Set<Aresta> arestas;
 
     private Grafo grafo;
 
-    public GraphGenerator() {
+    public GraphGenerator(int qntVertices, int qntArestas) {
 
-        geradorNumeros = new Random();
+        this.quantidadeVertices = qntVertices;
 
-        quantidadeVertices = geradorNumeros.nextInt(26) + 2;
-
-        quantidadeArestas = geradorNumeros.nextInt(50) + 1;
-
-        this(quantidadeVertices, quantidadeArestas);
-    }
-
-    public GraphGenerator(int quantidadeVertices, int quantidadeArestas) {
+        this.quantidadeArestas = qntArestas;
 
         letrasDosVertices = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+
+        geradorNumeros = new Random();
 
         vertices = gerarVertices(quantidadeVertices);
 
@@ -53,8 +48,8 @@ public class GraphGenerator {
 
         Set<Vertice> novosVertices = new HashSet<Vertice>();
 
-        for (int x = 0; i < quantidade; i++) {
-            novosVertices.add( new Vertice(letrasDosVertices[i]))
+        for (int i = 0; i < quantidade; i++) {
+            novosVertices.add( new Vertice(letrasDosVertices[i]));
         }
 
         return novosVertices;
@@ -63,19 +58,21 @@ public class GraphGenerator {
     private Set<Aresta> gerarArestas(int quantidade, Set<Vertice> vertices) {
         Set<Aresta> novasArestas = new HashSet<Aresta>();
 
+        Vertice[] arrayVertices = vertices.toArray(new Vertice[vertices.size()]);
+
         Vertice verticeA;
 
         Vertice verticeB;
 
         for (int i = 0; i < quantidade; i++) {
-            verticeA = vertices.get(geradorNumeros.nextInt(vertices.size()) + 2);
+            verticeA = arrayVertices[geradorNumeros.nextInt(arrayVertices.length) + 2];
 
-            verticeB = vertices.get(geradorNumeros.nextInt(vertices.size()) + 2);
+            verticeB = arrayVertices[geradorNumeros.nextInt(arrayVertices.length) + 2];
 
             if (verticeA.equals(verticeB))
                 continue;
 
-            novasArestas.add(verticeA, verticeB, 0);
+            novasArestas.add(new Aresta(verticeA, verticeB, 0));
         }
 
         return novasArestas;
