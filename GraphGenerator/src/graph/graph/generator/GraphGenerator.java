@@ -5,7 +5,6 @@ import java.util.Set;
 import java.util.Random;
 import java.util.List;
 import java.util.LinkedList;
-import graph.*;
 
 public class GraphGenerator {
 
@@ -65,9 +64,9 @@ public class GraphGenerator {
         Vertice verticeB;
 
         for (int i = 0; i < quantidade; i++) {
-            verticeA = arrayVertices[geradorNumeros.nextInt(arrayVertices.length) + 2];
+            verticeA = arrayVertices[geradorNumeros.nextInt(arrayVertices.length - 3) + 2];
 
-            verticeB = arrayVertices[geradorNumeros.nextInt(arrayVertices.length) + 2];
+            verticeB = arrayVertices[geradorNumeros.nextInt(arrayVertices.length - 3) + 2];
 
             if (verticeA.equals(verticeB))
                 continue;
