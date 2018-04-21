@@ -3,3 +3,7 @@ rootProject.name = 'graphtheory_error404'
 include 'Search'
 
 include 'WarmUp'
+
+include 'GraphGenerator'
+
+include ':WarmUp:GraphGenerator'

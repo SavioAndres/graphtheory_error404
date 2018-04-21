@@ -1,5 +1,9 @@
 apply plugin: 'java'
 
+repositories {
+        mavenCentral()
+}
+
 sourceSets {
     main {
         java {
@@ -16,8 +20,5 @@ sourceSets {
 
 dependencies {
     compile group: 'commons-collections', name: 'commons-collections', version: '3.2.2'
-
-    compile project (':GraphGenerator')
-
     testCompile group: 'junit', name: 'junit', version: '4.+'
 }

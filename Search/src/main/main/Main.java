@@ -2,10 +2,10 @@ package main;
 
 import java.util.HashSet;
 import java.util.Set;
+import graph.*;
 import org.junit.*;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import graph.*;
 
 public class Main {
 
