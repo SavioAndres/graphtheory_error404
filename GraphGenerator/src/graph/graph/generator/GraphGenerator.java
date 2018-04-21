@@ -5,6 +5,7 @@ import java.util.Set;
 import java.util.Random;
 import java.util.List;
 import java.util.LinkedList;
+import graph.*;
 
 public class GraphGenerator {
 
@@ -19,6 +20,8 @@ public class GraphGenerator {
     private Set<Aresta> arestas;
 
     private Random geradorNumeros;
+
+    private Grafo grafo;
 
     public GraphGenerator() {
 
@@ -38,10 +41,12 @@ public class GraphGenerator {
         vertices = gerarVertices(quantidadeVertices);
 
         arestas = gerarArestas(quantidadeArestas, vertices);
+
+        grafo = new Grafo(vertices, arestas);
     }
 
-    public Grafo getGrafo(Set<Vertice> vertices, Set<Aresta> arestas) {
-
+    public Grafo getGrafo() {
+        return grafo;
     }
 
     private Set<Vertice> gerarVertices(int quantidade) {
