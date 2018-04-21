@@ -25,8 +25,8 @@ public class Main {
 
     @Before
     public void setUp(){
-        vertices = new HashSet<>();
-        arestas = new HashSet<>();
+        vertices = new HashSet<Vertice>();
+        arestas = new HashSet<Aresta>();
 
         v1 = new Vertice("v1");
         v2 = new Vertice("v2");

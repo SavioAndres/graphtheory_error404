@@ -6,6 +6,4 @@ include 'WarmUp'
 
 include 'GraphGenerator'
 
-include ':GraphGenerator:WarmUp'
-
-include '<:WarmUp></:WarmUp>:GraphGenerator'
+include ':WarmUp:GraphGenerator'
