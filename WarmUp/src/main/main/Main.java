@@ -2,9 +2,10 @@ package main;
 
 import java.util.HashSet;
 import java.util.Set;
+import graph.*;
 import org.junit.*;
 import org.junit.Test;
-import graph.*;
+import static org.junit.Assert.*;
 
 public class Main {
 
@@ -47,22 +48,17 @@ public class Main {
     }
 
     @Test
-    public void testBuscaLargura2(){
-        grafo.buscaProfundidade2(v1);
-    }
-    
-    @Test
     public void testEhCompleto(){
-        //assertFalse(grafo.ehCompleto());
+        assertTrue(grafo.ehCompleto());
     }
 
     @Test
     public void testEhConexo(){
-        //assertFalse(grafo.ehConexo());
+        assertFalse(grafo.ehConexo());
     }
 
     @Test
     public void testEhRegular(){
-        //assertFalse(grafo.ehRegular());
+        assertTrue(grafo.ehRegular());
     }
 }
