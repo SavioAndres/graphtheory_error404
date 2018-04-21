@@ -175,7 +175,7 @@ public class Grafo implements IGrafo {
         }
     }
     
-    private Vertice getArestaPeso(Vertice v) {
+    private Vertice getVerticePeso(Vertice v) {
         double peso = 233000;
         Vertice menorPeso = null;
         for (Vertice vertice : vertices) {
@@ -194,6 +194,25 @@ public class Grafo implements IGrafo {
             }
         }
         return menorPeso;
+    }
+    
+    private Aresta getArestaPeso(Vertice v) {
+        double peso = 233000;
+        Aresta mArestaProx = null;
+        for (Vertice vertice : vertices) {
+            for (Aresta aresta : arestas) {
+                if (!vertice.isVisitado() && vertice == aresta.getA() || vertice == aresta.getB()) {
+                    if (aresta.getA() == v || aresta.getB() == v) {
+                        if (aresta.getPeso() < peso) {
+                            peso = aresta.getPeso();
+                            vertice.setVisitado(true);
+                            mArestaProx = aresta;
+                        }
+                    }
+                }
+            }
+        }
+        return mArestaProx;
     }
     
     @Override
