@@ -20,6 +20,5 @@ sourceSets {
 
 dependencies {
     compile group: 'commons-collections', name: 'commons-collections', version: '3.2.2'
-    compile project (':WarmUp')
     testCompile group: 'junit', name: 'junit', version: '4.+'
 }
